@@ -13,7 +13,7 @@ export default async function ProductsPage() {
 
         <div className='grid grid-cols-4'>
             {products.map(product => (
-                <Link href={`/product/${product.id}`}>
+                <Link href={`/product/${product.id}`} key={product.id}>
                     <div className="w-full relative pt-[100%]">
                         <Image
                         src={product.image}

@@ -64,7 +64,7 @@ const CartPage = () => {
 
             <div className='mt-5'>
                 {cart.items.map(item => (
-                    <div className='flex gap-3 border items-center p-3 rounded'>
+                    <div key={item.id} className='flex gap-3 border items-center p-3 rounded'>
                         <Image
                             src={item.product.image}
                             height={50}
