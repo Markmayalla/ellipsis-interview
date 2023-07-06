@@ -1,5 +1,7 @@
+import Link from 'next/link'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import { CartContextProvider } from '@/contexts/cart'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,7 +13,19 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <CartContextProvider>
+        <body className={inter.className}>
+          <div className='container'>
+            <div className='flex space-x-2 py-5'>
+              <Link href="/">Home</Link>
+              <Link href="/products">Products</Link>
+              <Link href="/cart">Cart</Link>
+            </div>
+
+            {children}
+          </div>
+        </body>
+      </CartContextProvider>
     </html>
   )
 }
